@@ -18,6 +18,17 @@ make -j
       `STARTING_PORT+BIDDER_NUM-1`, each bidder instance listens on one port.
    + If you want to run the bidder programs on different machines, then you 
    can run the script on each machine individually. 
+      + `IDX-OF-STARTING-ADVERTISER` is set to `0` when you run the script on
+        the first machine (or if you are only using a single machine).
+        After running the script on the first machine,
+        `IDX-OF-STARTING-ADVERTISER` should be set to the `total number of
+        bidders` you have launched.
+         + For exmaple, if you have started 48 bidders on the first machine,
+           when you launch another 48 bidders on the second machine,
+           `IDX-OF-STARTING-ADVERTISER` should be set to `48`.
+           And when you launch another 48 bidders on the third machie,
+           `IDX-OF-STARTING-ADVERTISER` should be set to `96` (48 on the first
+           machine and 48 on the second machine).
 3. Start another auction server.
    + Create a file (`FILENAME-OF-ADVS-IP` in the parameter when running 
       `server-interactive`) where each row consists of one bidder's
